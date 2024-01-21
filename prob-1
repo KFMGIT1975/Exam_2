@@ -1,0 +1,33 @@
+pos = -1
+list = []
+n = int(input("Enter number of elements in the list : "))
+input_str = input("Enter the list elements separated by spaces : ")
+elements = input_str.split()
+for i in range(0, n):
+    num = int(elements[i])
+    list.append(num)
+print(list)
+
+
+a = int(input('target = '))
+
+
+def search(list, a):
+    low = 0
+    high = len(list) - 1
+    while low <= high:
+        mid = (low + high) // 2
+        if list[mid] == a:
+            return mid
+        elif list[mid] < a:
+            low = mid + 1
+        else:
+            high = mid - 1
+    return -1
+
+
+pos = search(list, a)
+if pos != -1:
+    print(pos)
+else:
+    print("Not found.")
